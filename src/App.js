@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import Search from './pages/search';
+import Playlists from './pages/playlist';
+import { Switch, Route } from 'react-router-dom';
+import Sidebar from './components/sidebar';
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Sidebar />
+
+      <Switch>
+          <Route path="/playlists" component={Playlists}/>
+          
+          <Route path="/" component={Search}/>
+      </Switch>
+
     </div>
   );
 }

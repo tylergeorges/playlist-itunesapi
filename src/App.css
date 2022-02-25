@@ -1,38 +1,120 @@
-.App {
+body{
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  /* background-color: #000000;
+background-image: linear-gradient(147deg, #000000 0%, #434343 74%); */
+}
+.searchPage{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+  grid-auto-rows: auto;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.songCards{
+  position: relative;
+  width: 200px;
+  height: 250px;
+  
+  border-radius: 5px;
+
+  /* font-weight: ; */
+
+  background-color: red;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  align-items: center;
+  margin: 10px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.songArt{
+  display: flex;
+  border-radius: 5px;
+
+  justify-content: center;
+  margin-left: auto;  
+  margin-right: auto;  
+  width: 150px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.searchField{
+  vertical-align: top;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  height: 40px;
+  border: none;
+  background-color: #e4e6eb;
+  text-align: center;
+  margin: 0.5rem;
+  border-radius: 20px;
+}
+
+#searchBar:focus{
+outline: none;
+}
+
+#searchBar{
+  border: none;
+  background-color: #e4e6eb;
+  margin-right: 5rem;
+  min-width:  210px;
+}
+
+#searchBar input{
+  min-height:200px;
+}
+
+.formBox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.fa {
+ color: grey;
+  margin: 0.5rem;
+}
+
+
+
+#playlistName{
+  position: relative;
+  width: 150px;
+  margin-top: 200px;
+}
+
+.playlistCards{
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 200px;
+  height: 250px;
+  
+  border-radius: 5px;
+  justify-content: center;
+
+  background-color: red;
+  white-space: nowrap;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  align-items: center;
+  margin: 10px;
+  color: white;
+}
+
+.newPlaylist{
+  width: 200px;
+  height: 250px;
+  background-color: red;
 }
