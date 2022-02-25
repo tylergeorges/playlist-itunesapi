@@ -1,20 +1,11 @@
 import './App.css';
-import Search from './pages/search';
-import Playlists from './pages/playlist';
-import { Switch, Route } from 'react-router-dom';
-import Sidebar from './components/sidebar';
+import Home from './pages/Home';
 
 function App() {
 
   return (
     <div className="App">
-      <Sidebar />
-
-      <Switch>
-          <Route path="/playlists" component={Playlists}/>
-          
-          <Route path="/" component={Search}/>
-      </Switch>
+      <Home />
 
     </div>
   );

@@ -1,15 +1,16 @@
 import { render } from "@testing-library/react"
 import axios from "axios"
-import { useState, useEffect } from "react"
-import Playlists from "./playlist"
+import { useState, useEffect, useCallback } from "react"
+import Playlists from "../components/playlist"
 import { Link } from "react-router-dom"
-import Sidebar from "../components/sidebar"
 
 const Search = (props) => {
 
     const [search, searchResults] = useState([])
     const [artist, setArtist] = useState('')
-    const [playlist, addSong] = useState('')
+    const [playlist, addSong] = useState([])
+    const [playlistData, retrievePlaylists ] = useState([])
+
 
 
     const handleArtist = (e) => {
@@ -21,19 +22,16 @@ const Search = (props) => {
     const handlePlaylist = (e) => {
         e.preventDefault()
         //! send songs from here to playlist 
-        let listSongs = []
-
 
         addSong(e.target.value)   
-        console.log(listSongs)
-        console.log(playlist)
+        // console.log(playlist)
 
     }
 
     const handleSearch = (e) => {
         e.preventDefault()
 
-        axios.get(`https://itunes.apple.com/search?entity=musicTrack&term=${artist}`)
+        axios.get(`https://itunes.apple.com/search?entity=musicTrack&term=${artist}&limit=16`)
             .then(data => {
                 console.log(data)
                 searchResults(data.data.results)
@@ -51,10 +49,15 @@ const Search = (props) => {
         }
     }, [search])
 
+
+    const sendDataBack = (data) => {
+        retrievePlaylists(data)
+        // console.log("sent back to parent " + playlistData)
+    }
+
+
     return (
         <div>
-            <Link to={{ pathname: '/playlists', state: playlist}}>Playlists</Link>
-
 
             <form autoComplete="off" className="formBox" >
             <div className="searchField" >
@@ -73,16 +76,30 @@ const Search = (props) => {
                     return (
                         <div>
                             <form className="songCards">
-                                <button id="addPlaylist" value={results.trackId} onClick={handlePlaylist}>Add</button>
+                                <button id="addPlaylist" value={results.trackName} onClick={handlePlaylist}>Add</button>
                                 <img className="songArt" src={results.artworkUrl100} />
                                 <h3 key={results.trackId} >{results.trackName}</h3>
                                 <p>{results.artistName}</p>
+                                <span></span>
                             </form>
                         </div>
                     )
                 })}
             </div>
 
+                    {useEffect(()=>{
+                    playlistData.map(playlists => {
+                        if(playlists.playlist.songs != ''){
+                        console.log(playlists)
+                        }
+                        return(
+                            <div>
+                                <button onClick={() =>  playlists.playlist.songs = [...playlists.playlist.songs, playlist]} value={playlists.playlist.trackId}>{playlists.playlist.name}</button>    
+                            </div>
+                        )
+                    })},[playlist])}
+
+                <Playlists trackId={playlist} sendDataBack={sendDataBack}/>
         </div>
     )
 }
