@@ -25,7 +25,7 @@ const Playlists = ({ trackId, sendDataBack }) => {
         }]
 
         newPlaylist([...playlist, ...makeList])
-
+        // sendDataBack(playlist)
     }
 
     useEffect(()=>{

@@ -5,6 +5,7 @@ body{
 background-image: linear-gradient(147deg, #000000 0%, #434343 74%); */
 }
 .searchPage{
+  position: relative;
   display: flex;
   align-items: center;
   text-align: center;
@@ -94,14 +95,13 @@ outline: none;
 }
 
 .playlistCards{
-  display: flex;
-  flex-wrap: wrap;
   position: relative;
   width: 200px;
   height: 250px;
   
   border-radius: 5px;
-  justify-content: center;
+
+  /* font-weight: ; */
 
   background-color: red;
   white-space: nowrap;
@@ -118,3 +118,45 @@ outline: none;
   height: 250px;
   background-color: red;
 }
+
+
+
+.dropContent{
+  position: relative;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropbtn{
+  color: white;
+  position: absolute;
+  background: none;
+  margin-top: 210px;
+  margin-left: 70px;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.dropContent {
+  visibility:hidden;
+}
+.dropContent.show {
+  color: white;
+    border: none;
+    visibility:visible;
+    background-color: black;
+    margin-left: 100px;
+    z-index: 1;
+  };
+
+  .classForm{
+    display: flex;
+  }
+
+  .menu{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border-radius: 2px;
+  }
