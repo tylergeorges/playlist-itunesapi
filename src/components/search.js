@@ -22,7 +22,7 @@ const Search = (props) => {
 
         addSong(e.target.value)
         // console.log(e.target.value)
-   
+
             document.querySelectorAll(".songCards").forEach(element => {
                 element.onclick = (e) => {
               let elm = document.getElementsByClassName(e.target.getAttribute("anchor"));
@@ -31,6 +31,7 @@ const Search = (props) => {
                   if(elm[i].value === e.target.value){
 
                       elm[i].classList.toggle("show");
+                   
                   }
               }
             };

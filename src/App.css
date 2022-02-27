@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+  font-family: 'Poppins', 'sans';
+}
 body{
   text-align: center;
   align-items: center;
+  
   /* background-color: #000000;
 background-image: linear-gradient(147deg, #000000 0%, #434343 74%); */
 }
@@ -13,6 +19,7 @@ background-image: linear-gradient(147deg, #000000 0%, #434343 74%); */
   grid-auto-rows: auto;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: #e4e6eb;
 }
 
 .songCards{
@@ -95,20 +102,19 @@ outline: none;
 }
 
 .playlistCards{
+  display: flex;
+  flex-wrap: wrap;
   position: relative;
   width: 200px;
   height: 250px;
   
   border-radius: 5px;
 
-  /* font-weight: ; */
-
   background-color: red;
   white-space: nowrap;
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
-  align-items: center;
   margin: 10px;
   color: white;
 }
@@ -139,16 +145,17 @@ outline: none;
 }
 
 .dropContent {
-  visibility:hidden;
+  opacity: 0%;
 }
+
 .dropContent.show {
   color: white;
     border: none;
-    visibility:visible;
+    opacity:100%;
+    display: block;
     background-color: black;
     margin-left: 100px;
-    z-index: 1;
-  };
+  }
 
   .classForm{
     display: flex;
@@ -159,4 +166,63 @@ outline: none;
     position: relative;
     flex-direction: column;
     border-radius: 2px;
+  }
+
+  .allCards{
+    background-color: #e4e6eb;
+    display: flex;
+  }
+
+
+  .header{
+    color: white;
+    font-size: 30px;
+    background: linear-gradient(to right, #e96443, #904e95); 
+
+  }
+  
+  #playlistName{
+    color: red;
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: 20px;
+  }
+
+  #playlistName:focus {
+    outline: none;
+  }
+.playlist{
+  background-color: #e4e6eb;
+}
+  #playlistHeader{
+    color: white;
+    background: linear-gradient(to right, #e96443, #904e95); 
+  }
+
+  #newPlaylist{
+    color: red;
+    font-size: 20px;
+    position: absolute;
+    text-align: center;
+    margin-left: 25px;
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: white;
+    text-align: center;
+    border-radius: 20px;
+  }
+
+  #newPlaylist:hover{
+    background-color: #e4e6eb;
+  }
+
+  #newPlaylist:focus{
+    background-color: #cdcfd3
+    ;
   }

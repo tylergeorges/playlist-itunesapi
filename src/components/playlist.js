@@ -34,27 +34,30 @@ const Playlists = ({ trackId, sendDataBack }) => {
     },[playlist])
 
     return (
-        <div>
-            <h1>Playlists</h1>
+        <div className="playlist">
+            <h1 id="playlistHeader">Playlists</h1>
+            <div className="allCards">
             <div className="playlistCards">
-                <form>
+                <form className="createPlaylist">
                     <input type="text" id="playlistName" placeholder="playlist name..." key='playlistName' onChange={handlePlaylistName} />
                     <br />
-                    <button  id="newPlaylist" type="submit" key="makePlaylist" onClick={createPlaylist}>Create</button>
+                    <button  id="newPlaylist" type="submit" key="makePlaylist" onClick={createPlaylist}>CREATE</button>
                 </form>
-            </div>
+                </div>
 
             {playlist.map(playlists => {
                 return (
-                    <div className="playlistCards">
-                        <h1 >{playlists.playlist.name}</h1>
+                    <div className="playlistCards" >
+                        <ul>
+                        <h1>{playlists.playlist.name}</h1>
                         <br />
                         <p>{playlists.playlist.songs}</p>
                         <br />
+                        </ul>
                     </div>
                 )
             })}
-
+            </div>
         </div>
     )
 }
