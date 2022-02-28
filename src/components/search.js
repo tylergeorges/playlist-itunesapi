@@ -102,7 +102,7 @@ const Search = (props) => {
 
                                     <button anchor="dropContent" className="dropbtn" id='dropbtn' value={results.trackName} onClick={handlePlaylist }>+</button>
 
-                                    <img className="songArt" src={results.artworkUrl100} />
+                                    <img className="songArt" alt="awesome song art" src={results.artworkUrl100} />
                                     <h3 key={results.trackId} >{results.trackName}</h3>
                                     <p>{results.artistName}</p>
                                 </form>
