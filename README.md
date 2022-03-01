@@ -7,3 +7,6 @@ CURRENT BUGS
 *When adding a song you have to click a different plus button for it to add
 
 *When clicking the add song button it shifts the songs out of order
+
+
+![musicfinder wireframe](https://user-images.githubusercontent.com/94828874/156196212-c9e0ae9f-fe71-4ba9-8d01-28443854c0de.png)
