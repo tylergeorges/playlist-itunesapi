@@ -1,14 +1,17 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import Playlists from "../components/playlist"
+import { connect } from "react-redux"
+import { addPlaylist } from "../actions/actions"
+
+
+
 
 const Search = (props) => {
-
     const [search, searchResults] = useState([])
     const [artist, setArtist] = useState('')
     const [playlist, addSong] = useState([])
     const [playlistData, retrievePlaylists] = useState([])
-    const [listBut, setList] = useState('')
 
     const handleArtist = (e) => {
         e.preventDefault()
@@ -26,20 +29,18 @@ const Search = (props) => {
             document.querySelectorAll(".songCards").forEach(element => {
                 element.onclick = (e) => {
               let elm = document.getElementsByClassName(e.target.getAttribute("anchor"));
-              console.log(document.getElementById('myDrop').value)
+            //   console.log(document.getElementById('myDrop').value)
               for(let i = 0; i < elm.length; i++){
                   if(elm[i].value === e.target.value){
 
-                      elm[i].classList.toggle("show");
+                    elm[i].classList.toggle("show");
                    
                   }
               }
             };
           });
     }
-    const showDropDown = () => {
-        
-    }
+   
 
 
     const handleSearch = (e) => {
@@ -65,14 +66,14 @@ const Search = (props) => {
 
 
     const sendDataBack = (data) => {
+        
         retrievePlaylists(data)
+        // props.addPlaylist(data)
+        console.log(props)
+
         console.log(data)
-        // console.log("sent back to parent " + playlistData)
-
-        // e.value = ([...[e.target.value], [playlist]])
-        // console.log(e.target.value)
+   
     }
-
 
     return (
         <div>
@@ -113,9 +114,6 @@ const Search = (props) => {
                                             e.preventDefault()
                                             //!setting track name to song thats clicked 
                                             playlists.playlist.songs = [...playlists.playlist.songs, playlist]
-                                            // console.log(results.track)
-                                               
-                                            // if(results.trackId === document.getElementById('dropbtn').value)
                                         }
                                      
                                         return (
@@ -134,12 +132,12 @@ const Search = (props) => {
                     </div>
                 </div>
 
-            <Playlists trackId={playlist} sendDataBack={sendDataBack} />
+            <Playlists params={props} sendDataBack={sendDataBack} />
         </div>
     )
 }
 
-export default Search
+export default connect (null, {})(Search)
 
 
 //* https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
