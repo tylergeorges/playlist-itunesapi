@@ -28,6 +28,7 @@ const Playlists = (props) =>{
     if(playlistName !== ''){
          makeList = [{
             playlist: {
+                created_by: props.params.params.name ,
                 name: playlistName,
                 songs: [],
             }
@@ -37,6 +38,7 @@ const Playlists = (props) =>{
     }
         
         newPlaylist([...playlist, ...makeList, ])
+        props.addPlaylist(makeList)
 
     }
 
@@ -59,30 +61,16 @@ const Playlists = (props) =>{
                 </form>
                 </div>
 
-            {playlist.map(playlists => {
-                return (
-                    <div className="playlistCards" >
-                    <Link to={{pathname:`/${props.params.params.name}/playlist/${playlists.playlist.name}`, state:{songs: playlists.playlist.songs, user:props.params.params.name}}}>
-                        <ul>
-                        <h1 >{playlists.playlist.name}</h1>
-                        <br />
-                        {/* <p  >{playlists.playlist.songs}</p> */}
-                        <br />
-                        </ul>
-                    </Link>
-                    </div>
-                )
-            })}
 
             { props.usersplaylists.map(list => {
                 return(
                 <div>
                 {list.map(madeList =>{
-                         console.log(madeList.playlist.name)
+
+                         if(props.params.params.name === madeList.playlist.created_by){
                             return(
-                        
                                <div className="playlistCards" >
-                                <Link to={{pathname:`/${props.params.params.name}/playlist/${madeList.playlist.name}`, state:{songs: madeList.playlist.sib, user:props.params.params.name}}}>
+                                <Link to={{pathname:`/${props.params.params.name}/playlist/${madeList.playlist.name}`, state: {songs: madeList.playlist.songs, user:props.params.params.name}}}>
                                <ul>
                                <h1 >{madeList.playlist.name}</h1>
                                <br />
@@ -93,7 +81,8 @@ const Playlists = (props) =>{
                            </div>
                             )
                          
-                })}
+            }
+            })}
                 </div>
             )})}
             

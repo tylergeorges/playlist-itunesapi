@@ -14,7 +14,24 @@ const PlaylistSongs = (props) =>{
             <h1>Playlist</h1>
             <Link to={`/${props.location.state.user}/home`}>Home</Link>
 
-            <p>{props.usersplaylists}</p>
+            {props.usersplaylists.map(subList =>{
+                return(
+                    <div>
+                {subList.map(subSub =>{
+                    console.log(subSub)
+                    // subSub.songs.map(songs =>{
+                    //     console.log(songs)
+                    //     return(
+                    //         <div>
+                    //             <h3>{songs}</h3>
+                    //         </div>
+                    //     )
+                    // })
+                     
+                })}
+             </div>  
+            )
+            })}
         </div>
     )
 }

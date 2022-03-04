@@ -4,8 +4,12 @@ import Playlists from "../components/playlist"
 import { connect } from "react-redux"
 import { addPlaylist } from "../actions/actions"
 
-
-
+const mapStateToProps = state =>({
+    users: state.users,
+    
+        currentuser: state.currentuser,
+        usersplaylists: state.usersplaylist
+})
 
 const Search = (props) => {
     const [search, searchResults] = useState([])
@@ -66,13 +70,7 @@ const Search = (props) => {
 
 
     const sendDataBack = (data) => {
-        
         retrievePlaylists(data)
-        // props.addPlaylist(data)
-        console.log(props)
-
-        console.log(data)
-   
     }
 
     return (
@@ -137,7 +135,7 @@ const Search = (props) => {
     )
 }
 
-export default connect (null, {})(Search)
+export default connect (mapStateToProps, {addPlaylist})(Search)
 
 
 //* https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
