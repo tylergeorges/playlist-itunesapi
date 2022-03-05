@@ -3,12 +3,15 @@ import { useState, useEffect } from "react"
 import Playlists from "../components/playlist"
 import { connect } from "react-redux"
 import { addPlaylist } from "../actions/actions"
+import Dropdown from "./dropdown"
+import Dropbutton from "./dropbutton"
 
-const mapStateToProps = state =>({
+
+const mapStateToProps = state => ({
     users: state.users,
-    
-        currentuser: state.currentuser,
-        usersplaylists: state.usersplaylist
+
+    currentuser: state.currentuser,
+    usersplaylists: state.usersplaylist
 })
 
 const Search = (props) => {
@@ -24,27 +27,27 @@ const Search = (props) => {
     }
 
     const handlePlaylist = (e) => {
-        e.preventDefault()
+        // e.preventDefault()
         //! send songs from here to playlist 
 
-        addSong(e.target.value)
+        // addSong(e.target.value)
         // console.log(e.target.value)
+        console.log(e)
+        // document.querySelectorAll(".songCards").forEach(element => {
+        //     element.onclick = (e) => {
+        //         let elm = document.getElementsByClassName(e.target.getAttribute("anchor"));
+        //         //   console.log(document.getElementById('myDrop').value)
+        //         for (let i = 0; i < elm.length; i++) {
+        //             if (elm[i].value === e.target.value) {
 
-            document.querySelectorAll(".songCards").forEach(element => {
-                element.onclick = (e) => {
-              let elm = document.getElementsByClassName(e.target.getAttribute("anchor"));
-            //   console.log(document.getElementById('myDrop').value)
-              for(let i = 0; i < elm.length; i++){
-                  if(elm[i].value === e.target.value){
+        //                 elm[i].classList.toggle("show");
 
-                    elm[i].classList.toggle("show");
-                   
-                  }
-              }
-            };
-          });
+        //             }
+        //         }
+        //     };
+        // });
     }
-   
+
 
 
     const handleSearch = (e) => {
@@ -52,9 +55,7 @@ const Search = (props) => {
 
         axios.get(`https://itunes.apple.com/search?entity=musicTrack&term=${artist}&limit=16`)
             .then(data => {
-                console.log(data)
                 searchResults(data.data.results)
-                console.log(search)
             })
             .catch(err => {
                 console.log(err.message)
@@ -69,13 +70,9 @@ const Search = (props) => {
     }, [search])
 
 
-    const sendDataBack = (data) => {
-        retrievePlaylists(data)
-    }
-
     return (
         <div>
-                            
+
             <form autoComplete="off" className="formBox" >
                 <div className="searchField" >
                     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
@@ -85,57 +82,45 @@ const Search = (props) => {
                 </div>
                 <button type="submit" onClick={handleSearch} style={{ display: 'none' }} />
             </form>
-           
+
             <h1 id="title"></h1>
             <div className="dropdown">
                 <div className="searchPage">
-               
-                    
+
+
                     {search.map(results => {
-                       
-                    
+
+
                         return (
                             <div className="cardForm">
                                 <div >
-                                <form className="songCards" >
+                                    <form className="songCards" >
 
-                                    <button anchor="dropContent" className="dropbtn" id='dropbtn' value={results.trackName} onClick={handlePlaylist }>+</button>
+                                        <img className="songArt" alt="awesome song art" src={results.artworkUrl100} />
+                                        <h3 key={results.trackId} className='trackname' >{results.trackName}</h3>
+                                        <p className="artistname">{results.artistName}</p>
+                                        <Dropbutton className="icondrop"  value={results.trackName}>
+                                        <Dropdown playlists={props.playlists}/>
+                                        </Dropbutton>
+                                        
+                                    </form>
 
-                                    <img className="songArt" alt="awesome song art" src={results.artworkUrl100} />
-                                    <h3 key={results.trackId} >{results.trackName}</h3>
-                                    <p>{results.artistName}</p>
-                                </form>
-                              
-                             </div>
-                             {playlistData.map((playlists) => {
-                                        const addToPlaylist = (e) => {
-                                            e.preventDefault()
-                                            //!setting track name to song thats clicked 
-                                            playlists.playlist.songs = [...playlists.playlist.songs, playlist]
-                                        }
-                                     
-                                        return (
-                                    <div >
-                                        <div className="menu">
-                                        <button className="dropContent" id="myDrop" href="#" value={results.trackName} onClick={addToPlaylist} props={playlists.playlist.songs}>{playlists.playlist.name}</button>
-                                        </div>
-                                    </div>
-                                        )
-                                    })}         
+                                </div>
+                             
                             </div>
                         )
                     })}
 
-                   
-                    </div>
-                </div>
 
-            <Playlists params={props} sendDataBack={sendDataBack} />
+                </div>
+            </div>
+
+            <Playlists params={props} />
         </div>
     )
 }
 
-export default connect (mapStateToProps, {addPlaylist})(Search)
+export default connect(mapStateToProps, { addPlaylist })(Search)
 
 
 //* https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/

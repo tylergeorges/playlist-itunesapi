@@ -11,9 +11,6 @@ const mapStateToProps = (state) =>({
 })
 
 const Playlists = (props) =>{
-    let params = props.params.params.name
-
-    const [playlist, newPlaylist] = useState([ ])
     const [playlistName, setPlaylistName] = useState('')
 
     let makeList
@@ -37,21 +34,13 @@ const Playlists = (props) =>{
         console.log('Playlist must have a name!')
     }
         
-        newPlaylist([...playlist, ...makeList, ])
         props.addPlaylist(makeList)
 
     }
 
-    useEffect(()=>{
-
-    props.sendDataBack(playlist)
-    console.log(props)
-
-    },[playlist])
-
     return (
         <div className="playlist">
-            <h2 id="playlistHeader">Playlists</h2>
+            <h2 id="playlistHeader">{`${props.params.params.name}'s Playlists`}</h2>
             <div className="allCards">
             <div className="playlistCards">
                 <form className="createPlaylist">
@@ -61,12 +50,11 @@ const Playlists = (props) =>{
                 </form>
                 </div>
 
-
-            { props.usersplaylists.map(list => {
+                { props.usersplaylists.map(list => {
                 return(
                 <div>
                 {list.map(madeList =>{
-
+                    // console.log(madeList)
                          if(props.params.params.name === madeList.playlist.created_by){
                             return(
                                <div className="playlistCards" >
@@ -80,16 +68,11 @@ const Playlists = (props) =>{
                                </Link>
                            </div>
                             )
-                         
+
             }
             })}
                 </div>
             )})}
-            
-                 
-                
-        
-
             </div>
         </div>
     )
@@ -99,7 +82,6 @@ const Playlists = (props) =>{
 
 
 export default connect (mapStateToProps, {addPlaylist})(Playlists)
-
 
 //! playlistName = [
 //!     song1 = {

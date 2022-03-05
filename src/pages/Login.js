@@ -47,9 +47,7 @@ const Login = (props) =>{
             }})
     }
 
-    // useEffect(()=>{
-    //     window.history.replaceState({ ...window.history.state, as: `http://localhost:3000/${inputUser}/home`, url: `http://localhost:3000/:name/home` }, '', `http://localhost:3000/${inputUser}/home`);
-    // },[userHome])
+
 
     return(
         <div>

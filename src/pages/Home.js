@@ -1,23 +1,22 @@
 import Search from "../components/search"
 import Header from "../components/header"
-import userPage from "./UserPage"
 import { connect } from "react-redux"
 import { useParams } from "react-router-dom"
+import Dropdown from "../components/dropdown"
 
 const mapStateToProps = (state) => ({
-    currentuser: state.currentuser
+    currentuser: state.currentuser,
+    usersplaylists: state.usersplaylists,
 })
 
 const Home = (props) => {
-    console.log(props)
     let test = props.currentuser
      test = useParams()
-     console.log(test)
     return (
         <div>
 
             <Header />
-            <Search params={test}/>
+            <Search params={test} playlists={props.usersplaylists}/>
         </div>
     )
 }

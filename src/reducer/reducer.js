@@ -1,11 +1,11 @@
 import { REGISTER_ACC, LOGIN_ACC, ADD_PLAYLIST, SET_CURRENTUSER, ADD_SONG} from "../actions/actions";
 
-let user
 
 const initState = {
     users: [],
     currentuser: '',
     usersplaylists: [],
+    song: '',
         
 }
 
@@ -25,24 +25,20 @@ function reducer(state = initState , action) {
             }
         }
         case SET_CURRENTUSER:{
-            console.log(action.payload) 
-            console.log(state)
             return{
                 ...state, currentuser:  action.payload
             }
         }
         case ADD_PLAYLIST:{
             // console.log(action.payload)
-            console.log(state)
             return{
                 ...state, currentuser: state.currentuser , usersplaylists: [...state.usersplaylists, action.payload]
         }
         }
         case ADD_SONG:{
             // console.log(action.payload)
-            console.log(state)
             return{
-                // ...state, loggedIn:{currentuser: state.loggedIn.currentuser, usersplaylists: action.payload}
+                ...state,  song: action.payload
             }
         }
         default: return state;

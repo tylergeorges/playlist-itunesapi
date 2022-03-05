@@ -8,25 +8,33 @@ const mapStateToProps = (state) =>({
 })
 
 const PlaylistSongs = (props) =>{
-    console.log(props.usersplaylists)
+    // console.log(props.match.params.playlist)
+    console.log(props)
     return(
         <div>
-            <h1>Playlist</h1>
             <Link to={`/${props.location.state.user}/home`}>Home</Link>
-
             {props.usersplaylists.map(subList =>{
                 return(
                     <div>
-                {subList.map(subSub =>{
-                    console.log(subSub)
-                    // subSub.songs.map(songs =>{
-                    //     console.log(songs)
-                    //     return(
-                    //         <div>
-                    //             <h3>{songs}</h3>
-                    //         </div>
-                    //     )
-                    // })
+                { subList.map(subSub => {
+                    console.log(subSub.playlist.name)
+                   return(
+                    //!    checks if the playlist clicked on is the correct playlist 
+                       <div> 
+                           {subSub.playlist.name === props.match.params.playlist ? 
+                            <div>
+                               <h1>{subSub.playlist.name}</h1>
+                                {subSub.playlist.songs.map(songs =>{
+                                    return(
+                                        <div>
+                                            <li>{songs}</li>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                           :' '}
+                       </div>
+                   )
                      
                 })}
              </div>  
