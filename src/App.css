@@ -102,18 +102,14 @@ outline: none;
 
 .playlistCards{
   display: flex;
-  flex-wrap: wrap;
   position: relative;
   width: 200px;
   height: 250px;
   
   border-radius: 5px;
-
+  text-decoration: none;
   background-color: red;
-  white-space: nowrap;
-  overflow: hidden;
   text-align: center;
-  text-overflow: ellipsis;
   margin: 10px;
   color: white;
   z-index: 0;
@@ -162,9 +158,14 @@ outline: none;
 
 
   .header{
+    display: flex;
     color: white;
-    font-size: 30px;
-    background: linear-gradient(to right, #e96443, #904e95); 
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    /* font-size: 30px; */
+    /* background: linear-gradient(to right, #e96443, #904e95);  */
+    background-color: red;
 
   }
   
@@ -188,7 +189,8 @@ outline: none;
 }
   #playlistHeader{
     color: white;
-    background: linear-gradient(to right, #e96443, #904e95); 
+    /* background: linear-gradient(to right, #e96443, #904e95);  */
+    background-color: red;
   }
 
   #newPlaylist{
@@ -236,12 +238,9 @@ outline: none;
     color: #dadce1;
     display: inline-block;
     background-color: #484a4d;
-    /* overflow: hidden; */
     padding: 20px;
-    /* margin-bottom: 100px; */
     z-index: 5;
     list-style: none;
-    /* right: 5%; */
     margin: -4px;
     cursor: pointer;
     border-radius: 5px;
@@ -256,4 +255,153 @@ outline: none;
   .trackname{
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  .playlistName{
+    position: absolute;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .usersPlaylist{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: 200px;
+    height: 250px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: red;
+    margin: 10px;
+    color: white;
+    z-index: 0;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+  }
+
+  .usersPlaylist:hover{
+    transform: translateY(-25px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  }
+
+  .logout{
+    /* position: absolute; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;  
+    color: red;
+    font-size: 20px;
+    text-align: center;
+    width: 110px;
+    height: 40px;
+    background-color: white;
+    border-radius: 20px;
+  }
+
+  #logoutxt{
+    text-decoration: none;
+    color: red;
+  }
+
+  .sidebarbtn{
+    position: relative;
+    border: none;
+    display: flex;
+    left: 0;
+    text-decoration: none;  
+    color: blue;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25px;
+    /* justify-items: center; */
+    border-radius: 20px;
+  }
+  .navbarleft{
+    position: absolute;
+    left: 0;
+  }
+
+  .sidemenu{
+    text-align: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: red;
+    margin-left: 25px;
+    top: 100;
+    border: 1px solid #dadce1;;
+    z-index: 10;
+    border-collapse: collapse;
+    transition: 0.4s;
+  }
+
+  ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .sidebaruser{
+    /* position: absolute; */
+    border-top: 1px solid #dadce1;
+    margin-bottom: 0;
+  }
+
+  
+  .logout:hover{
+    background-color: #e4e6eb;
+  }
+
+  .playlistSongs{
+    display: flex;
+  
+    list-style: none;
+  }
+
+
+  .playlisttext{
+    margin-left: 3;
+  }
+
+
+  .playlistart{
+    display: flex;
+    height: 500px;
+    width: 500px;
+    margin: 10px;
+  }
+
+  .playlistSongsCon{
+    display: flex;
+    margin: 2px;
+    align-items: center;
+  }
+
+  .overall{
+    position: relative;
+    display: grid;
+    justify-content: center;
+  }
+
+  .playlistartist{
+    display: flex;
+  }
+  .carouselArt{
+    position: absolute;
+    /* visibility: visible; */
+    opacity: 0
+    /* transition: opacity 300ms; */
+  }
+
+  .hide{
+    /* visibility: hidden; */
+    opacity: 0;
   }

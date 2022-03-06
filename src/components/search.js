@@ -17,38 +17,13 @@ const mapStateToProps = state => ({
 const Search = (props) => {
     const [search, searchResults] = useState([])
     const [artist, setArtist] = useState('')
-    const [playlist, addSong] = useState([])
-    const [playlistData, retrievePlaylists] = useState([])
+   
 
     const handleArtist = (e) => {
         e.preventDefault()
 
         setArtist(e.target.value)
     }
-
-    const handlePlaylist = (e) => {
-        // e.preventDefault()
-        //! send songs from here to playlist 
-
-        // addSong(e.target.value)
-        // console.log(e.target.value)
-        console.log(e)
-        // document.querySelectorAll(".songCards").forEach(element => {
-        //     element.onclick = (e) => {
-        //         let elm = document.getElementsByClassName(e.target.getAttribute("anchor"));
-        //         //   console.log(document.getElementById('myDrop').value)
-        //         for (let i = 0; i < elm.length; i++) {
-        //             if (elm[i].value === e.target.value) {
-
-        //                 elm[i].classList.toggle("show");
-
-        //             }
-        //         }
-        //     };
-        // });
-    }
-
-
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -95,11 +70,11 @@ const Search = (props) => {
                             <div className="cardForm">
                                 <div >
                                     <form className="songCards" >
-
+                                    {/* {console.log(results)} */}
                                         <img className="songArt" alt="awesome song art" src={results.artworkUrl100} />
                                         <h3 key={results.trackId} className='trackname' >{results.trackName}</h3>
                                         <p className="artistname">{results.artistName}</p>
-                                        <Dropbutton className="icondrop"  value={results.trackName}>
+                                        <Dropbutton className="icondrop"  value={ results.trackId}>
                                         <Dropdown playlists={props.playlists}/>
                                         </Dropbutton>
                                         

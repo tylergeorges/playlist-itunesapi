@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react"
 import { connect } from "react-redux"
 import { addSong } from "../actions/actions"
 import dropdown from "./dropdown"
-
+import axios from "axios"
 
 const Dropbutton = (props) =>{
 
@@ -11,8 +11,17 @@ const Dropbutton = (props) =>{
     const handleClick = (e) =>{
         e.preventDefault()
         setOpen((prevState => !prevState))
-        // console.log(props.value)
-        props.addSong(props.value)
+                                         
+        axios.get(`https://itunes.apple.com/lookup?id=${props.value}`)
+            .then(data => {
+               data.data.results.map(track =>{
+                   props.addSong(track)
+               })
+            })
+            .catch(err => {
+                console.log(err.message)
+            })
+        // props.addSong(props.value)
     }
     
 

@@ -10,13 +10,13 @@ const mapStateToProps = (state) => ({
 })
 
 const Home = (props) => {
-    let test = props.currentuser
-     test = useParams()
+    let currUser = props.currentuser
+    currUser = useParams()
     return (
         <div>
 
-            <Header />
-            <Search params={test} playlists={props.usersplaylists}/>
+            <Header params={currUser}/>
+            <Search params={currUser} playlists={props.usersplaylists}/>
         </div>
     )
 }

@@ -6,14 +6,13 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Welcome from './pages/Welcome';
 import { useParams } from 'react-router-dom';
-import userPage from './pages/UserPage';
 import PlaylistSongs from './pages/PlaylistSongs';
+import Header from './components/header';
 
 function App() {
 
   return (
     <div className="App">
-
       <Switch>
       <Route  path="/:name/home" component={Home} />
       <Route  path="/:name/playlist/:playlist" component={PlaylistSongs} />

@@ -57,16 +57,12 @@ const Playlists = (props) =>{
                     // console.log(madeList)
                          if(props.params.params.name === madeList.playlist.created_by){
                             return(
-                               <div className="playlistCards" >
                                 <Link to={{pathname:`/${props.params.params.name}/playlist/${madeList.playlist.name}`, state: {songs: madeList.playlist.songs, user:props.params.params.name}}}>
-                               <ul>
-                               <h1 >{madeList.playlist.name}</h1>
-                               <br />
-                                {/* <p  >{list.playlist.songs}</p> */}
-                               <br />
-                               </ul>
-                               </Link>
-                           </div>
+                               <div className="usersPlaylist" >
+                               <h1 className="playlistName">{madeList.playlist.name}</h1>
+                              
+                            </div>
+                            </Link>
                             )
 
             }
