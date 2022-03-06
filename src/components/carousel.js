@@ -27,19 +27,22 @@ const Carousel = (props) =>{
     let showImg = url.replace(/100x100bb.jpg/, '512x512bb.jpg');
     console.log(props)
     return( 
-        <div>
-                <button onClick={handleCarousel} value='back'>-</button>
-                {/* {<img src={showImg} className="carouselArt" id="art"/> } */}
-                {props.playlists.map(songs =>{
+        <div className="carouselCon">
+                <button onClick={handleCarousel} value='back' class="arrow-left"></button>
+                <div className="carousel">
+                {<img src={showImg} className="carouselArt" id="art"/> }
+                {/* {props.playlists.map(songs =>{
                     return(
                         <div>
                             <img className="carouselArt" src={songs.artworkUrl100}/>
                         </div>
                     )
-                })}
+                })} */}
+                <p className="carouseltrack"> {props.playlists[carousel].trackName}</p>
+                </div>
                
-               <button onClick={handleCarousel} value="next">+</button>
-                <p> {props.playlists[carousel].trackName}</p>
+               <button onClick={handleCarousel} value="next" className="arrow-right"></button>
+               <br />
         </div>
     )
     }

@@ -13,12 +13,21 @@ const Welcome = () =>{
         history.replace({ pathname: `/login`});    
     }
     return(
-        <div>
-            <h1>Welcome!</h1>
-            <button onClick={toSignUp}>Sign Up</button>
-            <br />
-            <button onClick={toLogin}>Login</button>
+        <div className="accountcon">
+        <div className="accountpage">
 
+        <div className="formheadercon">
+        <h1 id="accountheader">Welcome!</h1>
+        </div>
+
+        <div className="accounttxt">
+        <br />
+            <button onClick={toSignUp} id="formbuttonWel">Sign Up</button>
+            <br />
+            <button onClick={toLogin} id="formbuttonWel">Login</button>
+            <br />
+            </div>
+        </div>
         </div>
     )
 }

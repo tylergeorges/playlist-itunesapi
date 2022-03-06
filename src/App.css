@@ -319,6 +319,10 @@ outline: none;
     margin-left: 25px;
     /* justify-items: center; */
     border-radius: 20px;
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px ;
   }
   .navbarleft{
     position: absolute;
@@ -395,13 +399,175 @@ outline: none;
     display: flex;
   }
   .carouselArt{
-    position: absolute;
     /* visibility: visible; */
-    opacity: 0
     /* transition: opacity 300ms; */
+    display: block;
   }
 
   .hide{
     /* visibility: hidden; */
     opacity: 0;
   }
+  .accountpage{
+    border-radius: 20px;
+    position: relative;
+    background-color: white;
+    bottom: 50;
+    display: flex;
+    border:  1px solid #dadce1;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 500px;
+    justify-content: center;
+    height: 500px;
+  }
+  #username{
+    text-indent: 5px;
+    margin: 5px;
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #dadce1;
+  }
+  #password{
+    text-indent: 5px;
+    margin: 5px;
+    width: 100%;
+    height: 30px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: #dadce1;
+  }
+
+  #username:focus{
+    outline: none;
+  }
+
+  #password:focus{
+    outline: none;
+  }
+
+ 
+  .accountcon{
+    background: linear-gradient(to right, #ff9966, #ff5e62); 
+    min-height: 100vh;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+  }
+  #accountheader{
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  .formheadercon{
+    position: absolute;
+    display: flex;
+    top: 0;
+    border-bottom: 1px solid #dadce1;
+    width: 100%;
+   
+  }
+  .accounttxt{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  #formbutton{
+    color: white;
+    border: none;
+    background: linear-gradient(to right, #ff9966, #ff5e62); 
+    height: 50px;
+    width:  100%;
+    font-size: 20px;
+    border-radius: 30px;
+  }
+
+  #formbutton:hover{
+    filter: brightness(1.1);
+  }
+  #formbutton:focus{
+    filter: brightness(.9);
+    transform: translateY(1px);
+  }
+  #linktootherpage{
+    color: #484a4d;
+  }
+
+ .carousel{
+   position: relative;
+   display: block;
+   /* display: flex; */
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+
+ }
+
+ .carouseltrack{
+  display: flex;
+  position: relative;
+ }
+
+ .carouselCon{
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+ }
+ button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+ .arrow-left {
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transform: rotate(-45deg);
+}
+ .arrow-right {
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+  transform: rotate(135deg);
+}
+
+#formbuttonWel{
+  color: white;
+  border: none;
+  background: linear-gradient(to right, #ff9966, #ff5e62); 
+  height: 50px;
+  width:  150px;
+  font-size: 20px;
+  border-radius: 30px;
+}
+
+#formbuttonWel:hover{
+  filter: brightness(1.1);
+}
+#formbuttonWel:focus{
+  filter: brightness(.9);
+  transform: translateY(1px);
+}

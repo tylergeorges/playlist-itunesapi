@@ -50,21 +50,24 @@ const Login = (props) =>{
 
 
     return(
-        <div>
-            <h1>Login</h1>
+        <div className="accountcon">
+            <div className="accountpage"> 
 
-            <form>
-            <label htmlFor="username">Username</label>
-            <input type='text' id="username" placeholder="Username" onChange={handleUser} />
-            <label htmlFor="password">Password</label>
-            <input type='text' id="password" placeholder="Password" onChange={handlePass}/>
-        
-            <button type="submit" onClick={handleSubmit}>Login</button>
-            <Link to="register">Make an Account</Link>
+            <div className="formheadercon">
+            <h1 id="accountheader">Login</h1>
+            </div>
+
+            <form className="accounttxt">
+            <input type='text' id="username" placeholder="username" onChange={handleUser} />
+            <input type='password' id="password" placeholder="password" onChange={handlePass}/>
             <br />
-            {/* <Link to={`/${inputUser}/home`} onClick={handleSubmit} type="submit">Sign in</Link> */}
+            <button type="submit" onClick={handleSubmit} id="formbutton">Login</button>
+            <br />
+            <Link to="register" id="linktootherpage">Make an Account</Link>
+            <br />
             </form>
-       
+            <br />
+            </div>
         </div>
     )
 }
