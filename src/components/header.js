@@ -8,7 +8,6 @@ const mapStateToProps = (state) =>({
 
 const Header = (props) =>{
 let user = props.params.name
-console.log
 // console.log(props)
     return(
     <div className="header">
