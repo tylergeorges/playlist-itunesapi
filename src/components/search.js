@@ -28,11 +28,21 @@ const Search = (props) => {
     const handleSearch = (e) => {
         e.preventDefault()
 
-        axios.get(`/api/search?entity=musicTrack&term=${artist}&limit=16`)
+        axios.get(`https://itunes.apple.com/search?entity=musicTrack&term=${artist}&limit=16`)
             .then(data => {
                 searchResults(data.data.results)
             })
             .catch(err => {
+                console.log(err.message)
+            })
+
+            axios({
+                method: 'get',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                url: `https://itunes.apple.com/search?entity=musicTrack&term=${artist}&limit=16`,
+              }).then( (data) =>{
+                searchResults(data.data.results)
+              }).catch(err => {
                 console.log(err.message)
             })
 
