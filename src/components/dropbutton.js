@@ -12,7 +12,7 @@ const Dropbutton = (props) =>{
         e.preventDefault()
         setOpen((prevState => !prevState))
                                          
-        axios.get(`https://itunes.apple.com/lookup?id=${props.value}`)
+        axios.get(`/api/lookup?id=${props.value}`)
             .then(data => {
                data.data.results.map(track =>{
                    props.addSong(track)
