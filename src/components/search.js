@@ -28,7 +28,7 @@ const Search = (props) => {
     const handleSearch = (e) => {
         e.preventDefault()
 
-        axios.get(`/search?entity=musicTrack&term=${artist}&limit=16`)
+        axios.get(`https://itunes.apple.com/search?entity=musicTrack&term=${artist}&limit=16`)
             .then(data => {
                 searchResults(data.data.results)
             })
