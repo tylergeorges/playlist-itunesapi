@@ -27,11 +27,12 @@ const SideBar = (props) =>{
     })
     return(
         <div>
-            <div className="sidebar">
-                <button href="#" className="sidebarbtn" onClick={handleClick}></button>
-                <button href="#" className="sidebarbtn" onClick={handleClick}></button>
-                <button href="#" className="sidebarbtn" onClick={handleClick}></button>
-            
+            <div className="sidebar" >
+                <div onClick={handleClick}>
+                <button href="#" className="sidebarbtn" ></button>
+                <button href="#" className="sidebarbtn" ></button>
+                <button href="#" className="sidebarbtn" ></button>
+                </div>
                 {open && props.children}
             </div>
         </div>

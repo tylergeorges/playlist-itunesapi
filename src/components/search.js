@@ -21,7 +21,7 @@ const Search = (props) => {
 
     const handleArtist = (e) => {
         e.preventDefault()
-
+        
         setArtist(e.target.value)
     }
 

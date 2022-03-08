@@ -22,14 +22,13 @@ const Carousel = (props) =>{
         }
     }
 
-    let url = props.playlists[carousel].artworkUrl100.toString();
-    
-    let showImg = url.replace(/100x100bb.jpg/, '512x512bb.jpg');
+    let url = props.playlists[carousel].artworkUrl100.toString()
+    let showImg = url.replace(/100x100bb.jpg/, '512x512bb.jpg')
     console.log(props)
-    return( 
+    return(
         <div className="carouselCon">
+            
                 <div className="carousel">
-                {/* {<img src={showImg} className="carouselArt" id="art"/> } */}
                 {props.playlists.map(songs =>{
                     return(
                         <div>
@@ -46,6 +45,8 @@ const Carousel = (props) =>{
                <br />
         </div>
     )
+       
     }
+
     
 export default Carousel

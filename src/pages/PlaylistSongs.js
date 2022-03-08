@@ -24,15 +24,17 @@ const PlaylistSongs = (props) =>{
                 return(
                     <div>
                 { subList.map(subSub => {
+                    console.log(subSub)
                    return(
                     //!    checks if the playlist clicked on is the correct playlist 
                        <div> 
-                           {subSub.playlist.name === props.match.params.playlist && subSub.playlist.created_by === props.match.params.name ? 
+                           {subSub.playlist.name === props.match.params.playlist && subSub.playlist.created_by === props.match.params.name  ? 
                                <div>
                                <h1>{subSub.playlist.name}</h1>
 
+                            { subSub.playlist.songs.length > 0 ? 
                                 <Carousel playlists={subSub.playlist.songs}/>
-                               
+                            : 'add songs!'}
                             <div className="overall">
                                
                                 {subSub.playlist.songs.map(songs =>{
