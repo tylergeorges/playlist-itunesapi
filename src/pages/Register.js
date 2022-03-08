@@ -40,7 +40,7 @@ const Register = (props) =>{
             
             <form className="accounttxt"> 
             <input type='text' id="username" placeholder="username" onChange={handleUser} />
-            <input type='password' id="password" placeholder="password" typeof="password" onChange={handlePass}/>
+            <input type='text' id="password" placeholder="password" typeof="password" onChange={handlePass}/>
             <br />
             <button type="submit" onClick={handleSubmit} id="formbutton">Register</button>
             <br />

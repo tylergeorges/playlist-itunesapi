@@ -12,28 +12,9 @@ const mapStateToProps = (state) =>({
 })
 
 const PlaylistSongs = (props) =>{
-    // let [carousel, setCarousel] = useState(0)
-
-    // const handleCarousel = (e) =>{
-    //     e.preventDefault()
-    //     console.log(e.target.value)
-    //     let carouselChecker
-
-    //      carouselChecker = props.usersplaylists[0][0].playlist.songs.length
-
-       
 
 
-    // }
-
-    // useEffect(() =>{
-    //  console.log(carousel)
-    // },[carousel])
-
-
-
-
-    // console.log(props.match.params.playlist)
+    console.log(props.match)
     // console.log(props)
     return(
         <div>
@@ -43,23 +24,18 @@ const PlaylistSongs = (props) =>{
                 return(
                     <div>
                 { subList.map(subSub => {
-                    // console.log(subSub.playlist.name)
-                    let counter = 0
                    return(
                     //!    checks if the playlist clicked on is the correct playlist 
                        <div> 
-                           {subSub.playlist.name === props.match.params.playlist ? 
+                           {subSub.playlist.name === props.match.params.playlist && subSub.playlist.created_by === props.match.params.name ? 
                                <div>
                                <h1>{subSub.playlist.name}</h1>
 
                                 <Carousel playlists={subSub.playlist.songs}/>
                                
-                                {/* {console.log((subSub.playlist.songs.length))} */}
-                                
                             <div className="overall">
                                
                                 {subSub.playlist.songs.map(songs =>{
-                                    // console.log(songs)
                                 return(
                                     <div>
 

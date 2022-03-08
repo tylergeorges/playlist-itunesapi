@@ -59,7 +59,7 @@ const Login = (props) =>{
 
             <form className="accounttxt">
             <input type='text' id="username" placeholder="username" onChange={handleUser} />
-            <input type='password' id="password" placeholder="password" onChange={handlePass}/>
+            <input type='text' id="password" placeholder="password" onChange={handlePass}/>
             <br />
             <button type="submit" onClick={handleSubmit} id="formbutton">Login</button>
             <br />

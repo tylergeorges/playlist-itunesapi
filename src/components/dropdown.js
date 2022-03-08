@@ -2,6 +2,7 @@ import { connect } from "react-redux"
 
 const mapStateToProps = (state) => ({
     song: state.song,
+    currentuser: state.currentuser
 })
 
 const Dropdown = (props) => {
@@ -18,12 +19,14 @@ const Dropdown = (props) => {
                             //! mapStateToProps from drop button song to here
                             // console.log(props.song)
                             playlists.playlist.songs = [...playlists.playlist.songs, props.song]
-                            console.log(playlists)
+                            console.log(playlists.playlist.created_by)
+                            console.log(props)
                         }
                         return (
                             <div>
                                 <ul >
-                                    <li className="menu" onClick={addToPlaylist}>{playlists.playlist.name}</li>
+                                   {playlists.playlist.created_by === props.currentuser ? <li className="menu" onClick={addToPlaylist}>{playlists.playlist.name}</li> : ''}
+                                   {/* { <li className="menu" onClick={addToPlaylist}>{playlists.playlist.name}</li> } */}
                                     
                                 </ul>
                             </div>

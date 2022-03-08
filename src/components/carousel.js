@@ -28,20 +28,21 @@ const Carousel = (props) =>{
     console.log(props)
     return( 
         <div className="carouselCon">
-                <button onClick={handleCarousel} value='back' class="arrow-left"></button>
                 <div className="carousel">
-                {<img src={showImg} className="carouselArt" id="art"/> }
-                {/* {props.playlists.map(songs =>{
+                {/* {<img src={showImg} className="carouselArt" id="art"/> } */}
+                {props.playlists.map(songs =>{
                     return(
                         <div>
-                            <img className="carouselArt" src={songs.artworkUrl100}/>
+                            {props.playlists[carousel].trackName === songs.trackName ? <img src={showImg} className="carouselArt" id='show'/>  : <img className="carouselArt" src={songs.artworkUrl100} />}
                         </div>
                     )
-                })} */}
+                })}
+                
                 <p className="carouseltrack"> {props.playlists[carousel].trackName}</p>
+               <button onClick={handleCarousel} value="next" className="arrow-right"></button>
+                <button onClick={handleCarousel} value='back' class="arrow-left"></button>
                 </div>
                
-               <button onClick={handleCarousel} value="next" className="arrow-right"></button>
                <br />
         </div>
     )

@@ -508,28 +508,61 @@ outline: none;
     color: #484a4d;
   }
 
- .carousel{
+ /* .carousel{
    position: relative;
+   width: 50vh;
+   height: 50vh;
    display: block;
-   /* display: flex; */
-   justify-content: center;
+   display: flex;
+  justify-content: center;
    align-items: center;
-   text-align: center;
-
- }
+   text-align: center; 
+  justify-items: center;
+ } */
 
  .carouseltrack{
   display: flex;
   position: relative;
  }
-
+.carouselArt{
+  visibility: hidden;
+  inset: 0;
+  position: absolute;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+  /* object-position: center; */
+  /* top: 50%;
+  left: 50%;  */
+  /* transform: translate(-50%, -50%);   */
+  text-align: center;
+  top: 0;
+bottom: 0;
+margin: auto;
+left: 0;
+right: 0;
+display: block;
+}
+#show{
+  visibility: visible;
+  opacity: 1;
+  transition-delay:  0ms; 
+  
+  /* z-index: 1; */
+}
  .carouselCon{
-   position: relative;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
+  position: relative;
+  /* width: 50vh; */
+  height: 60vh;
+  display: block;
+  display: flex;
+ justify-content: center;
+  align-items: center;
+  text-align: center; 
+ justify-items: center;
  }
+
+
  button, input[type="submit"], input[type="reset"] {
 	background: none;
 	color: inherit;
@@ -540,18 +573,24 @@ outline: none;
 	outline: inherit;
 }
  .arrow-left {
+   position: absolute;
   width: 25px;
   height: 25px;
   border-top: 2px solid #000;
   border-left: 2px solid #000;
   transform: rotate(-45deg);
+  z-index: 2;
+  left: 34%;
 }
  .arrow-right {
+  position: absolute;
   width: 25px;
   height: 25px;
   border-top: 2px solid #000;
   border-left: 2px solid #000;
   transform: rotate(135deg);
+  z-index: 2;
+  margin-left: 15%;
 }
 
 #formbuttonWel{
@@ -570,4 +609,11 @@ outline: none;
 #formbuttonWel:focus{
   filter: brightness(.9);
   transform: translateY(1px);
+}
+
+.carouseltrack{
+  position: absolute;
+  margin-top: 270px;
+  text-align: center;
+  /* left: 10; */
 }
