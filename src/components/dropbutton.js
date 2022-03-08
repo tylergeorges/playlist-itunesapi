@@ -12,28 +12,17 @@ const Dropbutton = (props) =>{
         e.preventDefault()
         setOpen((prevState => !prevState))
                                          
-        // axios.get(`https://itunes.apple.com/lookup?id=${props.value}`)
-        //     .then(data => {
-        //        data.data.results.map(track =>{
-        //            props.addSong(track)
+        axios.get(`https://itunes.apple.com/lookup?id=${props.value}`)
+            .then(data => {
+               data.data.results.map(track =>{
+                   props.addSong(track)
                    
-        //        })
-        //     })
-        //     .catch(err => {
-        //         console.log(err.message)
-        //     })
-            axios({
-                method: 'get',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                url: `https://itunes.apple.com/lookup?id=${props.value}`,
-              }).then( (data) =>{
-                data.data.results.map(track =>{
-                    props.addSong(track)
-                    
-                })
-              }).catch(err => {
+               })
+            })
+            .catch(err => {
                 console.log(err.message)
             })
+           
     
         // props.addSong(props.value)
     }
