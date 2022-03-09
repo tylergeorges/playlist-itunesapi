@@ -1,4 +1,8 @@
-LIVE SERVER: https://angry-jepsen-ca1c5c.netlify.app/
+LIVE SERVER: 
+
+https://angry-jepsen-ca1c5c.netlify.app/
+https://playlist-itunesapi.vercel.app/
+
 
 using itunes api to allow the user to search for music and make playlists to add the music to 
 
