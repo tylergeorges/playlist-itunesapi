@@ -1,6 +1,9 @@
 LIVE SERVER: 
 
-https://angry-jepsen-ca1c5c.netlify.app/
+https://angry-jepsen-ca1c5c.netlify.app/ 
+
+or
+
 https://playlist-itunesapi.vercel.app/
 
 
